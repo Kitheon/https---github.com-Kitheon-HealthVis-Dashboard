@@ -1,5 +1,4 @@
 import streamlit as st
-import plotly.graph_objects as go
 
 ABUSELEVEL = 0
 global_state = {"state": 1}
@@ -46,22 +45,6 @@ ALDict2 = {
     5: "You have a physical and psychological dependence on drugs.  Seek counceling.",
     6: "Drugs have become a necessity for day-to-day life.  Seek professional help immediately."
 }
-
-# Function to create a custom progress bar
-def custom_progress_bar(value, max_value, color):
-    fig = go.Figure(go.Indicator(
-        mode = "gauge+number",
-        value = value,
-        domain = {'x': [0, 1], 'y': [0, 1]},
-        gauge = {
-            'axis': {'range': [None, max_value]},
-            'bar': {'color': color},
-            'steps' : [
-                {'range': [0, max_value], 'color': color}
-            ],
-        }))
-    fig.update_layout(width=200, height=100)
-    st.plotly_chart(fig)
 
 def main():
     st.title("Abuse Level Survey")
